@@ -13,7 +13,7 @@ public class EmployeeMain {
         employeeMap.put(303, new Employee(303, "Omar", "English"));
         employeeMap.put(404, new Employee(404, "Sara", "Islamics"));
 
-        System.out.println("*** Display Existing Employees ***");
+        System.out.println("\n*** Display Existing Employees ***");
         for(Employee e:employeeMap.values()){
             System.out.println("Employee ID: "+e.getEmployeeId()+" | Employee Name: "+ e.getEmployeeName()+ " | Department: "+e.getDepartment());
 
@@ -34,10 +34,10 @@ public class EmployeeMain {
 
     public static void postOperation(Employee newEmployee){
         if(employeeMap.containsKey(newEmployee.getEmployeeId())){
-            System.out.println("\nEmployee ID Is Already Exist, Adding NOT Perform...");
+            System.out.println("Employee ID Is Already Exist, Adding NOT Perform...");
         }else{
             employeeMap.put(newEmployee.getEmployeeId(), newEmployee);
-            System.out.println("\nNew Employee Added Successfully... ");
+            System.out.println("New Employee Added Successfully... ");
             System.out.println("Employee ID: "+newEmployee.getEmployeeId()+" | Employee Name: "+ newEmployee.getEmployeeName()+ " | Department: "+newEmployee.getDepartment());
         }
     }

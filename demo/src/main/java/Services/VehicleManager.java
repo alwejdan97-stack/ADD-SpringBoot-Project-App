@@ -14,4 +14,15 @@ public class VehicleManager {
         vehicleMap.put(303, new Vehicle(303, "Ford Mustang", 120.00));
         vehicleMap.put(404, new Vehicle(404, "Nissan Sunny", 30.25));
     }
+
+    // method for adding vehicle
+    public static void addVehicle(Vehicle newVehicle){
+        if(vehicleMap.containsKey(newVehicle.getVehicleId())){
+            System.out.println("\nEmployee ID Is Already Exist, Adding NOT Perform...");
+        }else{
+            vehicleMap.put(newVehicle.getVehicleId(), newVehicle);
+            System.out.println("\nNew Employee Added Successfully... ");
+            System.out.println("Vehicle ID: "+newVehicle.getVehicleId()+" | Vehicle Model: "+ newVehicle.getVehicleModel()+ " | Rental Price PerDay: "+newVehicle.getRentalPricePerDay());
+        }
+    }
 }

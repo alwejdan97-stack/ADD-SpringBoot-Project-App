@@ -1,9 +1,6 @@
-package Services;
+package DemoApp;
 
 import Entities.Campaign;
-import Entities.Vehicle;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.HashMap;
 import java.util.Map;

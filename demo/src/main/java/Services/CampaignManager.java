@@ -17,8 +17,12 @@ public class CampaignManager {
         campaignMap.put(404, new Campaign(404, "App Installs", "Facebook", 850.75));
 
         System.out.println("\n*** Display Existing Campaign ***");
-        for(Campaign c:campaignMap.values()){
-            System.out.println("Campaign ID: "+c.getCampaignId()+" | Campaign Name: "+ c.getCampaignName()+ " | Platform: "+c.getPlatform()+" | Budget:"+c.getBudget());
+        if (campaignMap.isEmpty()){
+            System.out.println("NO Campaign In The List, FAILD To Display");
+        }else {
+            for (Campaign c : campaignMap.values()) {
+                System.out.println("Campaign ID: " + c.getCampaignId() + " | Campaign Name: " + c.getCampaignName() + " | Platform: " + c.getPlatform() + " | Budget:" + c.getBudget());
+            }
         }
 
         System.out.println("\n*** Adding New Campaign ***");
@@ -26,8 +30,12 @@ public class CampaignManager {
         addCampaign(newCampaign);
 
         System.out.println("\n*** Display Updated Campaign List ***");
-        for(Campaign c:campaignMap.values()){
-            System.out.println("Campaign ID: "+c.getCampaignId()+" | Campaign Name: "+ c.getCampaignName()+ " | Platform: "+c.getPlatform()+" | Budget:"+c.getBudget());
+        if (campaignMap.isEmpty()){
+            System.out.println("NO Campaign In The List, FAILD To Display");
+        }else{
+            for(Campaign c:campaignMap.values()){
+                System.out.println("Campaign ID: "+c.getCampaignId()+" | Campaign Name: "+ c.getCampaignName()+ " | Platform: "+c.getPlatform()+" | Budget:"+c.getBudget());
+            }
         }
     }
 

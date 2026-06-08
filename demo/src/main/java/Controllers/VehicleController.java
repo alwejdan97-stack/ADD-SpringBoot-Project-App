@@ -50,8 +50,8 @@ public class VehicleController {
         return vehicleMap.values();
     }
 
-    @PostMapping("/addVehicleMap")
-    public String addVehicleMap(@RequestBody Vehicle newVehicle) {
+    @PostMapping("/addVehicle")
+    public String addVehicle(@RequestBody Vehicle newVehicle) {
         if(vehicleMap.containsKey(newVehicle.getVehicleId())){
             return "Vehicle ID Is Already Exist, Adding NOT Perform...";
         }else{

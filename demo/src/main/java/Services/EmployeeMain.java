@@ -19,13 +19,18 @@ public class EmployeeMain {
 
         }
 
-
         Employee newEmployee=new Employee(505,"Wejdan","IT");
         if(employeeMap.containsKey(newEmployee.getEmployeeId())){
             System.out.println("Employee ID Is Already Exist, Adding NOT Perform...");
         }else{
-            System.out.println("New Employee Added: \n"+
+            System.out.println("\nNew Employee Added: \n"+
                     "Employee ID: "+newEmployee.getEmployeeId()+" | Employee Name: "+ newEmployee.getEmployeeName()+ " | Department: "+newEmployee.getDepartment());
+        }
+
+        System.out.println("\n*** Display Updated Employees List ***");
+        for(Employee e:employeeMap.values()){
+            System.out.println("Employee ID: "+e.getEmployeeId()+" | Employee Name: "+ e.getEmployeeName()+ " | Department: "+e.getDepartment());
+
         }
     }
 }

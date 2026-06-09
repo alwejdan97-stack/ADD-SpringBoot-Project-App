@@ -1,7 +1,6 @@
 package Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Data
@@ -13,7 +12,10 @@ import lombok.*;
 @Entity
 @Table(name = "Vehicle")
 public class Vehicle {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int vehicleId;
+
     private String vehicleModel;
     private double rentalPricePerDay;
 

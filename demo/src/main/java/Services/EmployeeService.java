@@ -18,11 +18,11 @@ public class EmployeeService{
     @Autowired
     private EmployeeInterface employeeRepository;
 
-    public List<Employee> displayEmployee() {
+    public Collection<Employee> displayEmployee() {
         return employeeRepository.findAll();
     }
 
-    public List<Employee> displayUpdatedEmployee() {
+    public Collection<Employee> displayUpdatedEmployee() {
         return employeeRepository.findAll();
     }
 

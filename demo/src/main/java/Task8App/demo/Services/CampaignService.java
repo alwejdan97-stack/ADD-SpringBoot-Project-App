@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -18,16 +19,22 @@ public class CampaignService {
     @Autowired
     CampaignInterface campaignRepository;
 
-    public Campaign save(Campaign campaign){
+    public Campaign saveCampaign(Campaign campaign){
         return campaignRepository.save(campaign);
     }
 
-    public Collection<Campaign> show(){
+    public List<Campaign> show(){
         return campaignRepository.findAll();
     }
 
-    public void delete(Campaign campaign){
-        campaignRepository.delete(campaign);
+    public String deleteById(Integer campaignId){
+        if(!campaignRepository.existsById(campaignId)){
+            return "ID NOT Found...";
+        }else{
+            //Campaign campaign=campaignRepository.findById(campaignId).get();
+            campaignRepository.deleteById(campaignId);
+            return "Deleted SUCCESSFULLY...";
+        }
     }
 
     //code for service class
@@ -39,7 +46,6 @@ public class CampaignService {
         campaignMap.put(303, new Campaign(303, "Brand Awareness", "TikTok", 1200.00));
         campaignMap.put(404, new Campaign(404, "App Installs", "Facebook", 850.75));
     }
-
 
     public Collection<Campaign> displayCampaign() {
         return campaignMap.values();

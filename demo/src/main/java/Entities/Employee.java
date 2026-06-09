@@ -3,25 +3,29 @@ package Entities;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
+import org.jspecify.annotations.NonNull;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="Employee")
 public class Employee {
 
     @Id
-    @GeneratedValue(Strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int employeeId;
+
     private String employeeName;
     private String department;
 
-    public Employee(int employeeId, String employeeName, String department) {
+   /* public Employee(int employeeId, String employeeName, String department) {
         this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.department = department;
-    }
+    }*/
 
     public int getEmployeeId() {
         return employeeId;

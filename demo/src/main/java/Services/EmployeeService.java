@@ -2,15 +2,37 @@ package Services;
 
 import Entities.Employee;
 
+import Interfaces.EmployeeInterface;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class EmployeeService{
-    public Map<Integer, Employee> employeeMap=new HashMap<>();
+
+    //MySQL codes
+    @Autowired
+    private EmployeeInterface employeeRepository;
+
+    public List<Employee> displayEmployee() {
+        return employeeRepository.findAll();
+    }
+
+    public List<Employee> displayUpdatedEmployee() {
+        return employeeRepository.findAll();
+    }
+
+    public Employee addEmployee(Employee newEmployee) {
+        return employeeRepository.save(newEmployee);
+    }
+
+    //Service code
+
+    /*public Map<Integer, Employee> employeeMap=new HashMap<>();
     public EmployeeService() {
         employeeMap.put(101, new Employee(101, "Ahmed", "IT"));
         employeeMap.put(202, new Employee(202, "Ali", "ABI"));
@@ -46,5 +68,5 @@ public class EmployeeService{
             System.out.println("New Employee Added Successfully... ");
             return "Employee ID: "+newEmployee.getEmployeeId()+" | Employee Name: "+ newEmployee.getEmployeeName()+ " | Department: "+newEmployee.getDepartment();
         }
-    }
+    }*/
 }

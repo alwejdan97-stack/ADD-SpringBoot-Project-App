@@ -1,6 +1,18 @@
 package Entities;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
+
+@Data
+@AllArgsConstructor
+@Entity
+@Table(name="Employee")
 public class Employee {
+
+    @Id
+    @GeneratedValue(Strategy=GenerationType.AUTO)
     private int employeeId;
     private String employeeName;
     private String department;

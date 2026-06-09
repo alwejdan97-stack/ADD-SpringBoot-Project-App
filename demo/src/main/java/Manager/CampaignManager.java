@@ -1,4 +1,4 @@
-package DemoApp;
+package Manager;
 
 import Entities.Campaign;
 

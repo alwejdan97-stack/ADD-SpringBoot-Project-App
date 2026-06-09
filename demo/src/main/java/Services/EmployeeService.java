@@ -13,20 +13,33 @@ import java.util.Map;
 
 @Service
 public class EmployeeService{
-
+    public Map<Integer, Employee> employeeMap=new HashMap<>();
+    public EmployeeService() {
+        employeeMap.put(101, new Employee(101, "Ahmed", "IT"));
+        employeeMap.put(202, new Employee(202, "Ali", "ABI"));
+        employeeMap.put(303, new Employee(303, "Omar", "English"));
+        employeeMap.put(404, new Employee(404, "Sara", "Islamics"));
+    }
     //MySQL codes
     @Autowired
     private EmployeeInterface employeeRepository;
 
     public Collection<Employee> displayEmployee() {
-        return employeeRepository.findAll();
+        return (Collection<Employee>) employeeRepository.findAll();
     }
 
     public Collection<Employee> displayUpdatedEmployee() {
-        return employeeRepository.findAll();
+        return (Collection<Employee>) employeeRepository.findAll();
     }
 
     public Employee addEmployee(Employee newEmployee) {
+        if(employeeMap.containsKey(newEmployee.getEmployeeId())){
+            System.out.println("Employee ID Is Already Exist, Adding NOT Perform...");
+        }else{
+            employeeMap.put(newEmployee.getEmployeeId(), newEmployee);
+            System.out.println("New Employee Added Successfully... ");
+            System.out.println("Employee ID: "+newEmployee.getEmployeeId()+" | Employee Name: "+ newEmployee.getEmployeeName()+ " | Department: "+newEmployee.getDepartment());
+        }
         return employeeRepository.save(newEmployee);
     }
 

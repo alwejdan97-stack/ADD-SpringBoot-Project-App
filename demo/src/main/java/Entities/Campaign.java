@@ -26,10 +26,10 @@ public class Campaign {
     @OneToMany(mappedBy = "campaign")
     private Collection<Vehicle> vehicles;
 
-    /*public Campaign(int campaignId, String campaignName, String platform, double budget) {
+    public Campaign(int campaignId, String campaignName, String platform, double budget) {
         this.campaignId = campaignId;
         this.campaignName = campaignName;
         this.platform = platform;
         this.budget = budget;
-    }*/
+    }
 }

@@ -36,7 +36,7 @@ public class VehicleManager {
         }
     }
 
-    // method for adding vehicle
+    // method for adding vehicle in Service class
     public static void addVehicle(Vehicle newVehicle){
         if(vehicleMap.containsKey(newVehicle.getVehicleId())){
             System.out.println("Vehicle ID Is Already Exist, Adding NOT Perform...");

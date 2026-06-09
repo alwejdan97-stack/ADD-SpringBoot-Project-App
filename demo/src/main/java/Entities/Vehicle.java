@@ -27,9 +27,9 @@ public class Vehicle {
     @JoinColumn(name = "campagin_id")
     private Campaign campaign;
 
-    /*public Vehicle(int vehicleId, String vehicleModel, double rentalPricePerDay) {
+    public Vehicle(int vehicleId, String vehicleModel, double rentalPricePerDay) {
         this.vehicleId = vehicleId;
         this.vehicleModel = vehicleModel;
         this.rentalPricePerDay = rentalPricePerDay;
-    }*/
+    }
 }

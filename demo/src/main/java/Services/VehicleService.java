@@ -1,6 +1,7 @@
 package Services;
 
 import Entities.Vehicle;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -9,7 +10,22 @@ import java.util.Map;
 
 @Service
 public class VehicleService {
-    public Map<Integer, Vehicle> vehicleMap=new HashMap<>();
+    @Autowired
+
+    public Collection<Vehicle> displayVehicle() {
+
+    }
+
+    public Collection<Vehicle> displayUpdatedVehicle() {
+
+    }
+
+    public String addVehicle( Vehicle newVehicle) {
+
+    }
+
+    //code for Service class
+    /*public Map<Integer, Vehicle> vehicleMap=new HashMap<>();
 
     public VehicleService() {
         vehicleMap.put(101, new Vehicle(101, "Toyota Camry", 45.00));
@@ -50,5 +66,5 @@ public class VehicleService {
             System.out.println("New Vehicle Added Successfully... ");
             return "Vehicle ID: "+newVehicle.getVehicleId()+" | Vehicle Model: "+ newVehicle.getVehicleModel()+ " | Rental Price PerDay: "+newVehicle.getRentalPricePerDay();
         }
-    }
+    }*/
 }

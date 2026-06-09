@@ -23,6 +23,10 @@ public class Vehicle {
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
+    @ManyToOne
+    @JoinColumn(name = "campagin_id")
+    private Campaign campaign;
+
     /*public Vehicle(int vehicleId, String vehicleModel, double rentalPricePerDay) {
         this.vehicleId = vehicleId;
         this.vehicleModel = vehicleModel;

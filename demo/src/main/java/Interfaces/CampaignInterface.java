@@ -1,4 +1,7 @@
 package Interfaces;
 
-public interface CampaignInterface {
+import Entities.Campaign;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CampaignInterface extends JpaRepository<Campaign,Integer> {
 }

@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
 import org.jspecify.annotations.NonNull;
 
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -23,7 +24,7 @@ public class Employee {
     private String department;
 
     @OneToMany(mappedBy = "employee")
-    private List<Vehicle> vehicleList;
+    private Collection<Vehicle> vehicleList;
 
    /* public Employee(int employeeId, String employeeName, String department) {
         this.employeeId = employeeId;

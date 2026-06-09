@@ -16,16 +16,16 @@ public class EmployeeController {
 
     @GetMapping("/displayEmployee")
     public Collection<Employee> displayEmployee() {
-        return employeeService.displayEmployee();
+        return employeeService.show();
     }
 
     @GetMapping("/displayUpdatedEmployee")
     public Collection<Employee> displayUpdatedEmployee() {
-        return employeeService.displayUpdatedEmployee();
+        return employeeService.show();
     }
 
     @PostMapping("/addEmployee")
     public Employee addEmployee(@RequestBody Employee newEmployee) {
-        return employeeService.addEmployee(newEmployee);
+        return employeeService.save(newEmployee);
     }
 }

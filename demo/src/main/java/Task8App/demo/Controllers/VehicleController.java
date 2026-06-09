@@ -17,16 +17,16 @@ public class VehicleController {
 
     @GetMapping("/displayVehicle")
     public Collection<Vehicle> displayVehicle() {
-        return vehicleService.displayVehicle();
+        return vehicleService.show();
     }
 
     @GetMapping("/displayUpdatedVehicle")
     public Collection<Vehicle> displayUpdatedVehicle() {
-        return vehicleService.displayUpdatedVehicle();
+        return vehicleService.show();
     }
 
     @PostMapping("/addVehicle")
     public Vehicle addVehicle(@RequestBody Vehicle newVehicle) {
-        return vehicleService.addVehicle(newVehicle);
+        return vehicleService.save(newVehicle);
     }
 }

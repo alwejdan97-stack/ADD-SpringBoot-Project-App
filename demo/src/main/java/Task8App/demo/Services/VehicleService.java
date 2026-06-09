@@ -11,39 +11,24 @@ import java.util.Map;
 
 @Service
 public class VehicleService {
-    public Map<Integer, Vehicle> vehicleMap=new HashMap<>();
-    public VehicleService() {
-        vehicleMap.put(101, new Vehicle(101, "Toyota Camry", 45.00));
-        vehicleMap.put(202, new Vehicle(202, "Tesla Model 3", 85.50));
-        vehicleMap.put(303, new Vehicle(303, "Ford Mustang", 120.00));
-        vehicleMap.put(404, new Vehicle(404, "Nissan Sunny", 30.25));
-    }
-
     //MySQL
     @Autowired
-    private VehicleInterface vehicleInterface;
+    VehicleInterface vehicleRepository;
 
-    public Collection<Vehicle> displayVehicle() {
-        return (Collection<Vehicle>) vehicleInterface.findAll();
+    public Vehicle save(Vehicle vehicle){
+        return vehicleRepository.save(vehicle);
     }
 
-    public Collection<Vehicle> displayUpdatedVehicle() {
-        return (Collection<Vehicle>) vehicleInterface.findAll();
+    public Collection<Vehicle> show(){
+        return vehicleRepository.findAll();
     }
 
-    public Vehicle addVehicle( Vehicle newVehicle) {
-        if(vehicleMap.containsKey(newVehicle.getVehicleId())){
-            System.out.println("Vehicle ID Is Already Exist, Adding NOT Perform...");
-        }else{
-            vehicleMap.put(newVehicle.getVehicleId(), newVehicle);
-            System.out.println("New Vehicle Added Successfully... ");
-            System.out.println("Vehicle ID: "+newVehicle.getVehicleId()+" | Vehicle Model: "+ newVehicle.getVehicleModel()+ " | Rental Price PerDay: "+newVehicle.getRentalPricePerDay());
-        }
-        return vehicleInterface.save(newVehicle);
+    public void delete(Vehicle vehicle){
+        vehicleRepository.delete(vehicle);
     }
 
     //code for Service class
-    /*public Map<Integer, Vehicle> vehicleMap=new HashMap<>();
+    public Map<Integer, Vehicle> vehicleMap=new HashMap<>();
 
     public VehicleService() {
         vehicleMap.put(101, new Vehicle(101, "Toyota Camry", 45.00));
@@ -52,7 +37,7 @@ public class VehicleService {
         vehicleMap.put(404, new Vehicle(404, "Nissan Sunny", 30.25));
     }
 
-    public Collection<Vehicle> displayVehicle() {
+   public Collection<Vehicle> displayVehicle() {
         System.out.println("\n*** Display Existing Vehicle ***");
         if(vehicleMap.isEmpty()){
             System.out.println("NO Vehicle In The List, FAILD To Display");
@@ -84,5 +69,5 @@ public class VehicleService {
             System.out.println("New Vehicle Added Successfully... ");
             return "Vehicle ID: "+newVehicle.getVehicleId()+" | Vehicle Model: "+ newVehicle.getVehicleModel()+ " | Rental Price PerDay: "+newVehicle.getRentalPricePerDay();
         }
-    }*/
+    }
 }

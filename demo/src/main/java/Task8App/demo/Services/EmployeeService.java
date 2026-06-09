@@ -2,6 +2,7 @@ package Task8App.demo.Services;
 
 import Task8App.demo.Entities.Employee;
 
+import Task8App.demo.Entities.Vehicle;
 import Task8App.demo.Interfaces.EmployeeInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,39 +13,24 @@ import java.util.Map;
 
 @Service
 public class EmployeeService{
-    public Map<Integer, Employee> employeeMap=new HashMap<>();
-    public EmployeeService() {
-        employeeMap.put(101, new Employee(101, "Ahmed", "IT"));
-        employeeMap.put(202, new Employee(202, "Ali", "ABI"));
-        employeeMap.put(303, new Employee(303, "Omar", "English"));
-        employeeMap.put(404, new Employee(404, "Sara", "Islamics"));
-    }
     //MySQL codes
     @Autowired
-    private EmployeeInterface employeeRepository;
+    EmployeeInterface employeeRepository;
 
-    public Collection<Employee> displayEmployee() {
-        return (Collection<Employee>) employeeRepository.findAll();
+    public Employee save(Employee employee){
+        return employeeRepository.save(employee);
     }
 
-    public Collection<Employee> displayUpdatedEmployee() {
-        return (Collection<Employee>) employeeRepository.findAll();
+    public Collection<Employee> show(){
+        return employeeRepository.findAll();
     }
 
-    public Employee addEmployee(Employee newEmployee) {
-        if(employeeMap.containsKey(newEmployee.getEmployeeId())){
-            System.out.println("Employee ID Is Already Exist, Adding NOT Perform...");
-        }else{
-            employeeMap.put(newEmployee.getEmployeeId(), newEmployee);
-            System.out.println("New Employee Added Successfully... ");
-            System.out.println("Employee ID: "+newEmployee.getEmployeeId()+" | Employee Name: "+ newEmployee.getEmployeeName()+ " | Department: "+newEmployee.getDepartment());
-        }
-        return employeeRepository.save(newEmployee);
+    public void delete(Employee employee){
+        employeeRepository.delete(employee);
     }
 
     //Service code
-
-    /*public Map<Integer, Employee> employeeMap=new HashMap<>();
+   public Map<Integer, Employee> employeeMap=new HashMap<>();
     public EmployeeService() {
         employeeMap.put(101, new Employee(101, "Ahmed", "IT"));
         employeeMap.put(202, new Employee(202, "Ali", "ABI"));
@@ -80,5 +66,5 @@ public class EmployeeService{
             System.out.println("New Employee Added Successfully... ");
             return "Employee ID: "+newEmployee.getEmployeeId()+" | Employee Name: "+ newEmployee.getEmployeeName()+ " | Department: "+newEmployee.getDepartment();
         }
-    }*/
+    }
 }

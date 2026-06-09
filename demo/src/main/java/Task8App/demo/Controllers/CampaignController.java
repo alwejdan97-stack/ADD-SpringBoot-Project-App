@@ -19,16 +19,16 @@ public class CampaignController {
     @GetMapping("/displayCampaign")
     public Collection<Campaign> displayCampaign() {
 
-        return campaignService.displayCampaign();
+        return campaignService.show();
     }
 
     @GetMapping("/displayUpdatedCampaign")
     public Collection<Campaign> displayUpdatedCampaign() {
-        return campaignService.displayUpdatedCampaign();
+        return campaignService.show();
     }
 
     @PostMapping("/addCampaign")
     public Campaign addCampaign(@RequestBody Campaign newCampaign) {
-        return campaignService.addCampaign(newCampaign);
+        return campaignService.save(newCampaign);
     }
 }

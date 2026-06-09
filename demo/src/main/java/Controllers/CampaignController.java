@@ -28,7 +28,7 @@ public class CampaignController {
     }
 
     @PostMapping("/addCampaign")
-    public String addCampaign(@RequestBody Campaign newCampaign) {
+    public Campaign addCampaign(@RequestBody Campaign newCampaign) {
         return campaignService.addCampaign(newCampaign);
     }
 }

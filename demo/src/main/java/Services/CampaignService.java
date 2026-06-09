@@ -1,6 +1,8 @@
 package Services;
 
 import Entities.Campaign;
+import Interfaces.CampaignInterface;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,7 +12,23 @@ import java.util.Map;
 
 @Service
 public class CampaignService {
-    public Map<Integer, Campaign> campaignMap = new HashMap<>();
+    @Autowired
+    private CampaignInterface campaignInterface;
+
+    public Collection<Campaign> displayCampaign() {
+        return campaignInterface.findAll();
+    }
+
+    public Collection<Campaign> displayUpdatedCampaign() {
+        return campaignInterface.findAll();
+    }
+
+    public Campaign addCampaign(Campaign newCampaign) {
+        return campaignInterface.save(newCampaign);
+    }
+
+    //code for service class
+    /*public Map<Integer, Campaign> campaignMap = new HashMap<>();
 
     public CampaignService() {
         campaignMap.put(101, new Campaign(101, "Summer Sale", "Instagram", 500.00));
@@ -40,5 +58,5 @@ public class CampaignService {
             System.out.println("New Campaign Added Successfully... ");
             return "Campaign ID: " + newCampaign.getCampaignId() + " | Campaign Name: " + newCampaign.getCampaignName() + " | Platform: " + newCampaign.getPlatform() + " | Budget:" + newCampaign.getBudget();
         }
-    }
+    }*/
 }

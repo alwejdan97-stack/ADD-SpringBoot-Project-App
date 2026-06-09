@@ -28,7 +28,7 @@ public class VehicleController {
     }
 
     @PostMapping("/addVehicle")
-    public String addVehicle(@RequestBody Vehicle newVehicle) {
+    public Vehicle addVehicle(@RequestBody Vehicle newVehicle) {
         return vehicleService.addVehicle(newVehicle);
     }
 }

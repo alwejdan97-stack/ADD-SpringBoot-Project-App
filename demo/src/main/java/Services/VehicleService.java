@@ -1,6 +1,7 @@
 package Services;
 
 import Entities.Vehicle;
+import Interfaces.VehicleInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,17 +12,18 @@ import java.util.Map;
 @Service
 public class VehicleService {
     @Autowired
+    private VehicleInterface vehicleInterface;
 
     public Collection<Vehicle> displayVehicle() {
-
+        return vehicleInterface.findAll();
     }
 
     public Collection<Vehicle> displayUpdatedVehicle() {
-
+        return vehicleInterface.findAll();
     }
 
-    public String addVehicle( Vehicle newVehicle) {
-
+    public Vehicle addVehicle( Vehicle newVehicle) {
+        return vehicleInterface.save(newVehicle);
     }
 
     //code for Service class

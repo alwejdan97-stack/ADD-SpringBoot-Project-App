@@ -1,6 +1,6 @@
-package Manager;
+package Task8App.demo.Manager;
 
-import Entities.Employee;
+import Task8App.demo.Entities.Employee;
 
 import java.util.HashMap;
 import java.util.Map;

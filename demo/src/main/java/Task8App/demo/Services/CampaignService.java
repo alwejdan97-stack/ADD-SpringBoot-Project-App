@@ -1,10 +1,9 @@
-package Services;
+package Task8App.demo.Services;
 
-import Entities.Campaign;
-import Interfaces.CampaignInterface;
+import Task8App.demo.Entities.Campaign;
+import Task8App.demo.Interfaces.CampaignInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 import java.util.HashMap;

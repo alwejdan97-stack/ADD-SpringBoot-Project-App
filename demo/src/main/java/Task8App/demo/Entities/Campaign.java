@@ -1,4 +1,4 @@
-package Entities;
+package Task8App.demo.Entities;
 
 import jakarta.persistence.*;
 import lombok.*;

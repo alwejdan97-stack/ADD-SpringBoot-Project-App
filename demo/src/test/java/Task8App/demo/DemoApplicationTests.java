@@ -1,4 +1,4 @@
-package AddApp.demo;
+package Task8App.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

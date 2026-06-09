@@ -1,4 +1,4 @@
-package AddApp.demo;
+package Task8App.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

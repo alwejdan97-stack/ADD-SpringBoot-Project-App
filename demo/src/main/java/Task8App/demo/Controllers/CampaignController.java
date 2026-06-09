@@ -1,8 +1,8 @@
-package Controllers;
+package Task8App.demo.Controllers;
 
-import Entities.Campaign;
+import Task8App.demo.Entities.Campaign;
 
-import Services.CampaignService;
+import Task8App.demo.Services.CampaignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

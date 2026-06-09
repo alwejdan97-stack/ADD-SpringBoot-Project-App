@@ -1,7 +1,7 @@
-package Controllers;
+package Task8App.demo.Controllers;
 
-import Entities.Vehicle;
-import Services.VehicleService;
+import Task8App.demo.Entities.Vehicle;
+import Task8App.demo.Services.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 public class VehicleController {

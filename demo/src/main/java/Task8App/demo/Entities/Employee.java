@@ -1,12 +1,9 @@
-package Entities;
+package Task8App.demo.Entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
-import org.jspecify.annotations.NonNull;
 
 import java.util.Collection;
-import java.util.List;
 
 @Data
 @AllArgsConstructor

@@ -1,7 +1,7 @@
-package Services;
+package Task8App.demo.Services;
 
-import Entities.Vehicle;
-import Interfaces.VehicleInterface;
+import Task8App.demo.Entities.Vehicle;
+import Task8App.demo.Interfaces.VehicleInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

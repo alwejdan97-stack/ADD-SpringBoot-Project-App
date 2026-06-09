@@ -1,14 +1,13 @@
-package Services;
+package Task8App.demo.Services;
 
-import Entities.Employee;
+import Task8App.demo.Entities.Employee;
 
-import Interfaces.EmployeeInterface;
+import Task8App.demo.Interfaces.EmployeeInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Service

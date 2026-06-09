@@ -26,6 +26,11 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private Collection<Vehicle> vehicleList;
 
+    @ManyToMany
+    @JoinTable(name = "Employee_Compaign",
+            JoinColumns=(@JoinColumn(name = "employee_id"),
+                        @JoinColumn(name = "compagin_id"));
+    private Collection<Campaign> compagins;
    /* public Employee(int employeeId, String employeeName, String department) {
         this.employeeId = employeeId;
         this.employeeName = employeeName;

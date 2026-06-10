@@ -18,17 +18,40 @@ public class EmployeeService{
     @Autowired
     EmployeeInterface employeeRepository;
 
-    public Employee save(Employee employee){
+    public Employee saveEmployee(Employee employee){
+        return employeeRepository.saveEmployee(employee);
+    }
+
+    public List<Employee> getAllEmployee(){
+        return employeeRepository.getAllEmployees();
+    }
+
+    public Employee getById(Integer id){
+        return employeeRepository.getById(id);
+    }
+
+    public Employee getNameById(Integer id){
+        return employeeRepository.getNameById(id);
+    }
+
+    public Employee updateVehicle(Integer id,String name){
+        Employee employee=employeeRepository.findById(id).get();
+        if(!employee.getEmployeeName().equals(name)){
+            employee.setEmployeeName(name);
+        }
         return employeeRepository.save(employee);
     }
 
-    public Collection<Employee> show(){
-        return employeeRepository.findAll();
+    public String deleteEmployee(Integer id){
+        if(!employeeRepository.existsById(id)){
+            return "ID NOT Found...";
+        }else{
+            Employee employee=employeeRepository.findById(id).get();
+            employeeRepository.saveEmployee(employee);
+            return "DELETED...";
+        }
     }
 
-    public void delete(Employee employee){
-        employeeRepository.delete(employee);
-    }
 
     //Service code
    public Map<Integer, Employee> employeeMap=new HashMap<>();

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.List;
 
 
 @RestController
@@ -14,18 +15,33 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
-    @GetMapping("/displayEmployee")
-    public Collection<Employee> displayEmployee() {
-        return employeeService.show();
+    @PostMapping("saveEmployee")
+    public Employee saveEmployee(Employee employee){
+        return employeeService.saveEmployee(employee);
     }
 
-    @GetMapping("/displayUpdatedEmployee")
-    public Collection<Employee> displayUpdatedEmployee() {
-        return employeeService.show();
+    @GetMapping("getAllEmployee")
+    public List<Employee> getAllEmployee(){
+        return employeeService.getAllEmployee();
     }
 
-    @PostMapping("/addEmployee")
-    public Employee addEmployee(@RequestBody Employee newEmployee) {
-        return employeeService.save(newEmployee);
+    @GetMapping("getById")
+    public Employee getById(Integer id){
+        return employeeService.getById(id);
+    }
+
+    @GetMapping("getNameById")
+    public String getNameById(Integer id){
+        return employeeService.getNameById(id);
+    }
+
+    @PutMapping("updateEmployee")
+    public Employee updateEmployee(Integer id,String name){
+        return employeeService.updateEmployee(id,name);
+    }
+
+    @DeleteMapping("deleteEmployee")
+    public String deleteEmployee(Integer id){
+        return employeeService.deleteEmployee(id);
     }
 }

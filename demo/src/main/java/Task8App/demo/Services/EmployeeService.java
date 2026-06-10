@@ -30,11 +30,11 @@ public class EmployeeService{
         return employeeRepository.getById(id);
     }
 
-    public Employee getNameById(Integer id){
+    public String getNameById(Integer id){
         return employeeRepository.getNameById(id);
     }
 
-    public Employee updateVehicle(Integer id,String name){
+    public Employee updateEmployee(Integer id,String name){
         Employee employee=employeeRepository.findById(id).get();
         if(!employee.getEmployeeName().equals(name)){
             employee.setEmployeeName(name);

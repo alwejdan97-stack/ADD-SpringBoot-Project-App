@@ -15,5 +15,5 @@ public interface EmployeeInterface extends JpaRepository<Employee,Integer> {
 
     Employee getById(Integer id);
 
-    Employee getNameById(Integer id);
+    String getNameById(Integer id);
 }

@@ -18,11 +18,11 @@ public class VehicleService {
     VehicleInterface vehicleRepository;
 
     public Vehicle saveVehicle(Vehicle vehicle){
-        return vehicleRepository.save(vehicle);
+        return vehicleRepository.saveVehicle(vehicle);
     }
 
     public List<Vehicle> getAllVehicle(){
-        return vehicleRepository.findAll();
+        return vehicleRepository.getAllVehicle();
     }
 
     public Vehicle getById(Integer id){

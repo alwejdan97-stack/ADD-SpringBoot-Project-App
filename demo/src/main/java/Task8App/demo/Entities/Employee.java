@@ -21,7 +21,7 @@ public class Employee {
     private String department;
 
     @OneToMany(mappedBy = "employee")
-    private Collection<Vehicle> vehicleList;
+    private List<Vehicle> vehicleList;
 
     @ManyToMany
     @JoinTable(name = "Employee_Campaign",

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -38,15 +39,15 @@ public class EmployeeService{
         employeeMap.put(404, new Employee(404, "Sara", "Islamics"));
     }
 
-    public Collection<Employee> displayEmployee() {
+    public List<Employee> displayEmployee() {
         System.out.println("\n*** Display Existing Employees ***");
         for(Employee e:employeeMap.values()){
             System.out.println("Employee ID: "+e.getEmployeeId()+" | Employee Name: "+ e.getEmployeeName()+ " | Department: "+e.getDepartment());
         }
-        return employeeMap.values();
+        return employeeMap.values().stream().toList();
     }
 
-    public Collection<Employee> displayUpdatedEmployee() {
+    public List<Employee> displayUpdatedEmployee() {
         System.out.println("\n*** Display Updated Employees List ***");
         if(employeeMap.isEmpty()){
             System.out.println("NO Employee In The List, FAILD To Display");
@@ -55,7 +56,7 @@ public class EmployeeService{
                 System.out.println("Employee ID: "+e.getEmployeeId()+" | Employee Name: "+ e.getEmployeeName()+ " | Department: "+e.getDepartment());
             }
         }
-        return employeeMap.values();
+        return employeeMap.values().stream().toList();
     }
 
     public String addEmployee(Employee newEmployee) {

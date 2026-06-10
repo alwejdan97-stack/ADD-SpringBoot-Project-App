@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CampaignInterface extends JpaRepository<Campaign,Integer> {
     //@Query("SELECT C FROM Campagin C")
-    String deleteById(@Param("id") Integer campaignId);
+    void deleteById(@Param("id") Integer campaignId);
+
 }

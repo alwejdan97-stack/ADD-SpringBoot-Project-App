@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -24,7 +25,7 @@ public class Campaign {
     private double budget;
 
     @OneToMany(mappedBy = "campaign")
-    private Collection<Vehicle> vehicles;
+    private List<Vehicle> vehicles;
 
     public Campaign(int campaignId, String campaignName, String platform, double budget) {
         this.campaignId = campaignId;

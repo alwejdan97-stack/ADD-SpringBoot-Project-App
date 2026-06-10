@@ -4,9 +4,11 @@ import Task8App.demo.Entities.Vehicle;
 import Task8App.demo.Interfaces.VehicleInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -15,17 +17,40 @@ public class VehicleService {
     @Autowired
     VehicleInterface vehicleRepository;
 
-    public Vehicle save(Vehicle vehicle){
+    public Vehicle saveVehicle(Vehicle vehicle){
         return vehicleRepository.save(vehicle);
     }
 
-    public Collection<Vehicle> show(){
+    public List<Vehicle> getAllVehicle(){
         return vehicleRepository.findAll();
     }
 
-    public void delete(Vehicle vehicle){
-        vehicleRepository.delete(vehicle);
+    public Vehicle getById(Integer id){
+        return vehicleRepository.getById(id);
     }
+
+    public String getNameById(Integer id){
+        return vehicleRepository.getNameById(id);
+    }
+
+    public Vehicle updateVehicle(Integer id,String model){
+        Vehicle vehicle=vehicleRepository.findById(id).get();
+        if(!vehicle.getVehicleModel().equals(model)){
+            vehicle.setVehicleModel(model);
+        }
+        return vehicleRepository.save(vehicle);
+    }
+
+    public String deleteVehicle(Integer id){
+        if(!vehicleRepository.existsById(id)){
+            return "ID NOT Found...";
+        }else{
+            Vehicle vehicle=vehicleRepository.findById(id).get();
+            vehicleRepository.save(vehicle);
+            return "DELETED...";
+        }
+    }
+
 
     //code for Service class
     public Map<Integer, Vehicle> vehicleMap=new HashMap<>();
@@ -37,7 +62,7 @@ public class VehicleService {
         vehicleMap.put(404, new Vehicle(404, "Nissan Sunny", 30.25));
     }
 
-   public Collection<Vehicle> displayVehicle() {
+   public List<Vehicle> displayVehicle() {
         System.out.println("\n*** Display Existing Vehicle ***");
         if(vehicleMap.isEmpty()){
             System.out.println("NO Vehicle In The List, FAILD To Display");
@@ -46,10 +71,10 @@ public class VehicleService {
                 System.out.println("Vehicle ID: " + v.getVehicleId() + " | Vehicle Model: " + v.getVehicleModel() + " | Rental Price PerDay: " + v.getRentalPricePerDay());
             }
         }
-        return vehicleMap.values();
+        return vehicleMap.values().stream().toList();
     }
 
-    public Collection<Vehicle> displayUpdatedVehicle() {
+    public List<Vehicle> displayUpdatedVehicle() {
         System.out.println("\n*** Display Updated Vehicle List ***");
         if(vehicleMap.isEmpty()){
             System.out.println("NO Vehicle In The List, FAILD To Display");
@@ -58,7 +83,7 @@ public class VehicleService {
                 System.out.println("Vehicle ID: " + v.getVehicleId() + " | Vehicle Model: " + v.getVehicleModel() + " | Rental Price PerDay: " + v.getRentalPricePerDay());
             }
         }
-        return vehicleMap.values();
+        return vehicleMap.values().stream().toList();
     }
 
     public String addVehicle( Vehicle newVehicle) {

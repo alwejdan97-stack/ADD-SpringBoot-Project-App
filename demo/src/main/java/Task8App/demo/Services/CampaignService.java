@@ -47,16 +47,16 @@ public class CampaignService {
         campaignMap.put(404, new Campaign(404, "App Installs", "Facebook", 850.75));
     }
 
-    public Collection<Campaign> displayCampaign() {
-        return campaignMap.values();
+    public List<Campaign> displayCampaign() {
+        return campaignMap.values().stream().toList();
     }
 
-    public Collection<Campaign> displayUpdatedCampaign() {
+    public List<Campaign> displayUpdatedCampaign() {
         System.out.println("\n*** Display Updated Campaign List ***");
         for (Campaign c : campaignMap.values()) {
             System.out.println("Campaign ID: " + c.getCampaignId() + " | Campaign Name: " + c.getCampaignName() + " | Platform: " + c.getPlatform() + " | Budget:" + c.getBudget());
         }
-        return campaignMap.values();
+        return campaignMap.values().stream().toList();
     }
 
     public String addCampaign(Campaign newCampaign) {

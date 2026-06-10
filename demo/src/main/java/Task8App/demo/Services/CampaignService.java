@@ -20,20 +20,36 @@ public class CampaignService {
     CampaignInterface campaignRepository;
 
     public Campaign saveCampaign(Campaign campaign){
-        return campaignRepository.save(campaign);
+        return campaignRepository.saveCampaign(campaign);
     }
 
-    public List<Campaign> show(){
-        return campaignRepository.findAll();
+    public List<Campaign> getAllCampaigns() {
+        return campaignRepository.getAllCampaigns();
     }
 
-    public String deleteById(Integer campaignId){
-        if(!campaignRepository.existsById(campaignId)){
+    public Campaign getById(Integer id){
+        return campaignRepository.getById(id);
+    }
+
+    public String getNameById(Integer id){
+        return campaignRepository.getNameById(id);
+    }
+
+    public Campaign updateEmployee(Integer id,String name){
+        Campaign campaign=campaignRepository.findById(id).get();
+        if(!campaign.getCampaignName().equals(name)){
+            campaign.setCampaignName(name);
+        }
+        return campaignRepository.saveCampaign(campaign);
+    }
+
+    public String deleteCampaign(Integer id){
+        if(!campaignRepository.existsById(id)){
             return "ID NOT Found...";
         }else{
-            //Campaign campaign=campaignRepository.findById(campaignId).get();
-            campaignRepository.deleteById(campaignId);
-            return "Deleted SUCCESSFULLY...";
+            Campaign campaign=campaignRepository.findById(id).get();
+            campaignRepository.saveCampaign(campaign);
+            return "DELETED...";
         }
     }
 

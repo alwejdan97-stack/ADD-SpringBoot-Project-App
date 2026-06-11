@@ -35,6 +35,9 @@ public class CampaignService {
     }
 
     public String getNameById(Integer id){
+        if(!campaignRepository.existsById(id)){
+            return "ID NOT Found";
+        }
         return campaignRepository.getNameById(id);
     }
 
@@ -43,7 +46,7 @@ public class CampaignService {
         if(!campaign.getCampaignName().equals(name)){
             campaign.setCampaignName(name);
         }
-        return campaignRepository.saveCampaign(campaign);
+        return campaignRepository.save(campaign);
     }
 
     public String deleteCampaign(Integer id){

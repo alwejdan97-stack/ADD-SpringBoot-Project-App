@@ -19,11 +19,11 @@ public class EmployeeService{
     EmployeeInterface employeeRepository;
 
     public Employee saveEmployee(Employee employee){
-        return employeeRepository.saveEmployee(employee);
+        return employeeRepository.save(employee);
     }
 
     public List<Employee> getAllEmployee(){
-        return employeeRepository.getAllEmployees();
+        return employeeRepository.findAll();
     }
 
     public Employee getById(Integer id){
@@ -53,14 +53,14 @@ public class EmployeeService{
             return "ID NOT Found...";
         }else{
             Employee employee=employeeRepository.findById(id).get();
-            employeeRepository.saveEmployee(employee);
+            employeeRepository.save(employee);
             return "DELETED...";
         }
     }
 
 
     //Service code
-   public Map<Integer, Employee> employeeMap=new HashMap<>();
+   /*public Map<Integer, Employee> employeeMap=new HashMap<>();
     public EmployeeService() {
         employeeMap.put(101, new Employee(101, "Ahmed", "IT"));
         employeeMap.put(202, new Employee(202, "Ali", "ABI"));
@@ -96,5 +96,5 @@ public class EmployeeService{
             System.out.println("New Employee Added Successfully... ");
             return "Employee ID: "+newEmployee.getEmployeeId()+" | Employee Name: "+ newEmployee.getEmployeeName()+ " | Department: "+newEmployee.getDepartment();
         }
-    }
+    }*/
 }

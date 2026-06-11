@@ -11,11 +11,11 @@ import java.util.List;
 @Repository
 public interface VehicleInterface extends JpaRepository<Vehicle,Integer> {
 
-    Vehicle saveVehicle(Vehicle vehicle);
+    /*Vehicle saveVehicle(Vehicle vehicle);
 
     List<Vehicle> getAllVehicle();
     @Query("SELECT V.vehicleModel FROM Vehicle V WHERE V.vehicleId=:id")
-    Vehicle getById(Integer id);
+    Vehicle getById(Integer id);*/
 
     @Query("SELECT V.vehicleModel FROM Vehicle V WHERE V.vehicleId=:id")
     String getNameById(@Param("id") Integer id);

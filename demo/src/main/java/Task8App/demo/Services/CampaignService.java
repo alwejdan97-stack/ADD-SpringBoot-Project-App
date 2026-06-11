@@ -20,11 +20,11 @@ public class CampaignService {
     CampaignInterface campaignRepository;
 
     public Campaign saveCampaign(Campaign campaign){
-        return campaignRepository.saveCampaign(campaign);
+        return campaignRepository.save(campaign);
     }
 
     public List<Campaign> getAllCampaigns() {
-        return campaignRepository.getAllCampaigns();
+        return campaignRepository.findAll();
     }
 
     public Campaign getById(Integer id){
@@ -41,7 +41,7 @@ public class CampaignService {
         return campaignRepository.getNameById(id);
     }
 
-    public Campaign updateEmployee(Integer id,String name){
+    public Campaign updateCampaign(Integer id,String name){
         Campaign campaign=campaignRepository.findById(id).get();
         if(!campaign.getCampaignName().equals(name)){
             campaign.setCampaignName(name);
@@ -49,18 +49,19 @@ public class CampaignService {
         return campaignRepository.save(campaign);
     }
 
-    public String deleteCampaign(Integer id){
+    public Boolean deleteCampaign(Integer id){
         if(!campaignRepository.existsById(id)){
-            return "ID NOT Found...";
+            System.out.println("ID NOT Found...");
         }else{
             Campaign campaign=campaignRepository.findById(id).get();
-            campaignRepository.saveCampaign(campaign);
-            return "DELETED...";
+            campaignRepository.save(campaign);
+            return true;
         }
+        return false;
     }
 
     //code for service class
-    public Map<Integer, Campaign> campaignMap = new HashMap<>();
+    /*public Map<Integer, Campaign> campaignMap = new HashMap<>();
 
     public CampaignService() {
         campaignMap.put(101, new Campaign(101, "Summer Sale", "Instagram", 500.00));
@@ -89,5 +90,5 @@ public class CampaignService {
             System.out.println("New Campaign Added Successfully... ");
             return "Campaign ID: " + newCampaign.getCampaignId() + " | Campaign Name: " + newCampaign.getCampaignName() + " | Platform: " + newCampaign.getPlatform() + " | Budget:" + newCampaign.getBudget();
         }
-    }
+    }*/
 }

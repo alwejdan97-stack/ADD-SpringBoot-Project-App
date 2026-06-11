@@ -1,4 +1,4 @@
-package Task8App.demo.Manager;
+/*package Task8App.demo.Manager;
 
 import Task8App.demo.Entities.Campaign;
 
@@ -45,4 +45,4 @@ public class CampaignManager {
             System.out.println("Campaign ID: " + newCampaign.getCampaignId() + " | Campaign Name: " + newCampaign.getCampaignName() + " | Platform: " + newCampaign.getPlatform() + " | Budget:" + newCampaign.getBudget());
         }
     }
-}
+}*/

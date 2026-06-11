@@ -11,12 +11,12 @@ import java.util.List;
 
 @Repository
 public interface CampaignInterface extends JpaRepository<Campaign,Integer> {
-    Campaign saveCampaign(Campaign campaign);
+    /*Campaign saveCampaign(Campaign campaign);
 
     List<Campaign> getAllCampaigns();
 
     @Query("SELECT C.campaignName FROM Campaign C WHERE C.campaignId=:id")
-    Campaign getById(@Param("id") Integer id);
+    Campaign getById(@Param("id") Integer id);*/
 
     @Query("SELECT C.campaignName FROM Campaign C WHERE C.campaignId=:id")
     String getNameById(@Param("id")Integer id);

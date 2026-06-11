@@ -11,13 +11,13 @@ import java.util.List;
 
 @Repository
 public interface EmployeeInterface extends JpaRepository<Employee,Integer> {
-    Employee saveEmployee(Employee employee);
+    /*Employee saveEmployee(Employee employee);
 
     List<Employee> getAllEmployees();
 
     @Query("SELECT C.employeeName FROM Employee E WHERE E.employeeId=:id")
-    Employee getById(@Param("id") Integer id);
+    Employee getById(@Param("id") Integer id);*/
 
-    @Query("SELECT C.employeeName FROM Employee E WHERE E.employeeId=:id")
+    @Query("SELECT E.employeeName FROM Employee E WHERE E.employeeId=:id")
     String getNameById(@Param("id") Integer id);
 }

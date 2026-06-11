@@ -10,13 +10,13 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("employee")
 public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
     @PostMapping("saveEmployee")
-    public Employee saveEmployee(Employee employee){
+    public Employee saveEmployee(@RequestBody Employee employee){
         return employeeService.saveEmployee(employee);
     }
 
@@ -26,22 +26,22 @@ public class EmployeeController {
     }
 
     @GetMapping("getById")
-    public Employee getById(Integer id){
+    public Employee getById(@RequestParam Integer id){
         return employeeService.getById(id);
     }
 
     @GetMapping("getNameById")
-    public String getNameById(Integer id){
+    public String getNameById(@RequestParam Integer id){
         return employeeService.getNameById(id);
     }
 
     @PutMapping("updateEmployee")
-    public Employee updateEmployee(Integer id,String name){
+    public Employee updateEmployee(@RequestParam Integer id,@RequestParam String name){
         return employeeService.updateEmployee(id,name);
     }
 
     @DeleteMapping("deleteEmployee")
-    public String deleteEmployee(Integer id){
+    public String deleteEmployee(@RequestParam Integer id){
         return employeeService.deleteEmployee(id);
     }
 }

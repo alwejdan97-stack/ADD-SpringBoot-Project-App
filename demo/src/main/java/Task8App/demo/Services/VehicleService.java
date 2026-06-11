@@ -18,11 +18,11 @@ public class VehicleService {
     VehicleInterface vehicleRepository;
 
     public Vehicle saveVehicle(Vehicle vehicle){
-        return vehicleRepository.saveVehicle(vehicle);
+        return vehicleRepository.save(vehicle);
     }
 
     public List<Vehicle> getAllVehicle(){
-        return vehicleRepository.getAllVehicle();
+        return vehicleRepository.findAll();
     }
 
     public Vehicle getById(Integer id){
@@ -53,7 +53,7 @@ public class VehicleService {
 
 
     //code for Service class
-    public Map<Integer, Vehicle> vehicleMap=new HashMap<>();
+    /*public Map<Integer, Vehicle> vehicleMap=new HashMap<>();
 
     public VehicleService() {
         vehicleMap.put(101, new Vehicle(101, "Toyota Camry", 45.00));
@@ -94,5 +94,5 @@ public class VehicleService {
             System.out.println("New Vehicle Added Successfully... ");
             return "Vehicle ID: "+newVehicle.getVehicleId()+" | Vehicle Model: "+ newVehicle.getVehicleModel()+ " | Rental Price PerDay: "+newVehicle.getRentalPricePerDay();
         }
-    }
+    }*/
 }

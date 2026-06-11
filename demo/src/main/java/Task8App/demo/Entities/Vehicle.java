@@ -4,16 +4,13 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-
 @Entity
 @Table(name = "Vehicle")
 public class Vehicle {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int vehicleId;
 
     private String vehicleModel;
@@ -27,9 +24,9 @@ public class Vehicle {
     @JoinColumn(name = "campaign_id")
     private Campaign campaign;
 
-    public Vehicle(int vehicleId, String vehicleModel, double rentalPricePerDay) {
+    /*public Vehicle(int vehicleId, String vehicleModel, double rentalPricePerDay) {
         this.vehicleId = vehicleId;
         this.vehicleModel = vehicleModel;
         this.rentalPricePerDay = rentalPricePerDay;
-    }
+    }*/
 }

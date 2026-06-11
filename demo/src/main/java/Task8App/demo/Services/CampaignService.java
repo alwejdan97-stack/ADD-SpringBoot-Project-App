@@ -28,6 +28,9 @@ public class CampaignService {
     }
 
     public Campaign getById(Integer id){
+        if(!campaignRepository.existsById(id)){
+            System.out.println("ID NOT Found");
+        }
         return campaignRepository.getById(id);
     }
 

@@ -15,7 +15,9 @@ public interface CampaignInterface extends JpaRepository<Campaign,Integer> {
 
     List<Campaign> getAllCampaigns();
 
-    Campaign getById(Integer id);
+    @Query("SELECT C.campaignName FROM Campaign C WHERE C.campaignId=:id")
+    Campaign getById(@Param("id") Integer id);
 
-    String getNameById(Integer id);
+    @Query("SELECT C.campaignName FROM Campaign C WHERE C.campaignId=:id")
+    String getNameById(@Param("id")Integer id);
 }

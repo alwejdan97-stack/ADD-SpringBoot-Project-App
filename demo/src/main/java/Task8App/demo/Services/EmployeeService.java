@@ -27,10 +27,16 @@ public class EmployeeService{
     }
 
     public Employee getById(Integer id){
+        if(!employeeRepository.existsById(id)){
+            System.out.println("ID NOT Found");
+        }
         return employeeRepository.getById(id);
     }
 
     public String getNameById(Integer id){
+        if(!employeeRepository.existsById(id)){
+            return "ID NOT Found";
+        }
         return employeeRepository.getNameById(id);
     }
 

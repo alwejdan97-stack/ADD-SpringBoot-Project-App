@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -20,14 +21,14 @@ public class Employee {
     private String employeeName;
     private String department;
 
-    @OneToMany(mappedBy = "employee")
-    private List<Vehicle> vehicleList;
+    /*@OneToMany(mappedBy = "employee")
+    private List<Vehicle> vehicleList;*/
 
     @ManyToMany
     @JoinTable(name = "Employee_Campaign",
             joinColumns=@JoinColumn(name = "employee_id"),
-            inverseJoinColumns=@JoinColumn(name = "campagin_id"))
-    private Collection<Campaign> campaign;
+            inverseJoinColumns=@JoinColumn(name = "campaign_id"))
+    private List<Campaign> campaign;
    public Employee(int employeeId, String employeeName, String department) {
         this.employeeId = employeeId;
         this.employeeName = employeeName;

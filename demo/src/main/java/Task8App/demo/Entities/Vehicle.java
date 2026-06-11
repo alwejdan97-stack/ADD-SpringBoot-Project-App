@@ -19,12 +19,12 @@ public class Vehicle {
     private String vehicleModel;
     private double rentalPricePerDay;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "employee_id")
-    private Employee employee;
+    private Employee employee;*/
 
     @ManyToOne
-    @JoinColumn(name = "campagin_id")
+    @JoinColumn(name = "campaign_id")
     private Campaign campaign;
 
     public Vehicle(int vehicleId, String vehicleModel, double rentalPricePerDay) {
